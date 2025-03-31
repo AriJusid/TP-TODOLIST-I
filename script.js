@@ -3,13 +3,15 @@ let listaTareas = []
 let lista = document.getElementById('list')
 
 
-function AgregarTarea(){
+function AdministrarTarea(){
     const crearLabel = document.createElement ('li')
     const checkbox = document.createElement('input')
     const crearDelete = document.createElement ('button')
     const span = document.createElement('span')
+    let completas = []
 
     crearDelete.innerHTML = "Eliminar"
+    completas.push(crearDelete)
     checkbox.setAttribute("type", "checkbox")
     
     listaTareas.push(tareaIngresada.value)
@@ -20,6 +22,11 @@ function AgregarTarea(){
     crearDelete.addEventListener("click", () => {
         lista.removeChild(crearLabel)
     })
+
+    completas.forEach(function(tarea){
+        crearDelete.innerHTML = "Eliminar"
+        checkbox.setAttribute("type", "checkbox")
+    });
 
     crearLabel.appendChild(checkbox)
     crearLabel.appendChild(span)
