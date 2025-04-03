@@ -1,3 +1,15 @@
 input[type="checkbox"]:checked + span {
   text-decoration: line-through;
 }
+
+form:has(input[value="pendientes"]:checked) #list li:has(input[type="checkbox"]:checked) {
+  display: none;
+}
+
+form:has(input[value="completas"]:checked) #list li:not(:has(input[type="checkbox"]:checked)) {
+  display: none;
+}
+
+form:has(input[value="todas"]:checked) #list li {
+  display: flex;
+}

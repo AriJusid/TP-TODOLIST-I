@@ -7,15 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button>Dark mode</button>
     <form>
        <input  value="" name="r" type="text" id="ingreso">
        <button type="button" id="botonIngresar" onclick="AdministrarTarea()">Agregar</button>
        <button type="button" id="botonBorrar" onclick="EliminarCompletadas()">Eliminar completadas</button>
 
+       <input type="radio" name="filter" value="todas" checked>
+       <label>Todas</label>
+       <input type="radio" name="filter" value="pendientes">
+       <label>Pendientes</label>
+       <input type="radio" name="filter" value="completas">
+       <label>Completadas</label>
+
+       <ul id="list">
+        </ul>
+    
     </form>
-   
-    <ul id="list">
-    </ul>
+    
     
     <script src="script.js"></script>
 </body>

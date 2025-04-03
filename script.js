@@ -27,9 +27,17 @@ function AdministrarTarea(){
         crearDate.innerHTML = new Date (fecha).toLocaleString("es-ES", { hour12: false, minute: "2-digit", hour: "2-digit", day: "2-digit", month: "2-digit", year: "numeric" })
     });
 
+   /* leerTareas.addEventListener("load", () => {
+
+        const tarea = localStorage.getItem("miTarea");
+
+    })*/
+
+    localStorage.setItem("tareas", JSON.stringify(lista));
 
     crearDelete.addEventListener("click", () => {
         lista.removeChild(crearLabel)
+        localStorage.setItem("tareas", JSON.stringify(lista));
     })
 
 
@@ -38,6 +46,7 @@ function AdministrarTarea(){
         checkbox.setAttribute("type", "checkbox")
     });
 
+    
 
     crearLabel.appendChild(checkbox)
     crearLabel.appendChild(span)
@@ -47,10 +56,10 @@ function AdministrarTarea(){
     tareaIngresada.value = "";
 }
 
+//window.onload()
 
 function EliminarCompletadas() {
     let tareas = document.querySelectorAll("#list li");
-
 
     tareas.forEach((tarea) => {
         let checkbox = tarea.querySelector("input[type='checkbox']");
@@ -59,6 +68,5 @@ function EliminarCompletadas() {
         }
     });
 }
-
 
 
