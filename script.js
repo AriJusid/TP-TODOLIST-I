@@ -2,9 +2,6 @@ var tareaIngresada = document.getElementById("ingreso")
 let listaTareas = []
 let lista = document.getElementById('list')
 
-
-
-
 function AdministrarTarea(){
     const crearLabel = document.createElement ('li')
     const checkbox = document.createElement('input')
@@ -29,15 +26,31 @@ function AdministrarTarea(){
 
    /* leerTareas.addEventListener("load", () => {
 
-        const tarea = localStorage.getItem("miTarea");
+        const guardadas = localStorage.getItem("misTareas");
+        guardadas.forEach(tarea => {
+            const crearLabel = document.createElement('li');
+            const checkbox = document.createElement('input');
+            const crearDelete = document.createElement('button');
+            const crearDate = document.createElement('p');
+            const span = document.createElement('span');
+            checkbox.setAttribute("type", "checkbox");
+            span.innerHTML = tarea.descripcion;
+            crearDate.innerHTML = new Date(tarea.fecha).toLocaleString("es-ES", {
+                hour12: false,
+                minute: "2-digit",
+                hour: "2-digit",
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric"
+            });
 
     })*/
 
-    localStorage.setItem("tareas", JSON.stringify(lista));
+    const guardarTareas = () => localStorage.setItem("tareas", JSON.stringify(lista));
 
     crearDelete.addEventListener("click", () => {
         lista.removeChild(crearLabel)
-        localStorage.setItem("tareas", JSON.stringify(lista));
+        localStorage.setItem("misTareas", JSON.stringify(lista));
     })
 
 
@@ -56,7 +69,7 @@ function AdministrarTarea(){
     tareaIngresada.value = "";
 }
 
-//window.onload()
+window.onload()
 
 function EliminarCompletadas() {
     let tareas = document.querySelectorAll("#list li");
