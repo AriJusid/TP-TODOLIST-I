@@ -8,6 +8,7 @@ function AdministrarTarea(){
     const crearDelete = document.createElement ('button')
     const crearDate = document.createElement ('p')
     const span = document.createElement('span')
+    const crearDateCompleta = document.createElement('p')
     let completas = []
     const fecha = Date.now()
 
@@ -59,17 +60,24 @@ function AdministrarTarea(){
         checkbox.setAttribute("type", "checkbox")
     });
 
-    
+    checkbox.addEventListener("change", () =>{
+        listaTareas.forEach(() => {
+            let checkbox = document.querySelector("input[type='checkbox']");
+            if (checkbox.checked) {
+                crearDateCompleta.innerHTML = "Completada el " + Date.now().toLocaleString("es-ES", { hour12: false, minute: "2-digit", hour: "2-digit", day: "2-digit", month: "2-digit", year: "numeric" })
+            }
+        });
+    })
 
     crearLabel.appendChild(checkbox)
     crearLabel.appendChild(span)
     crearLabel.appendChild(crearDate)
+    crearLabel.appendChild(crearDateCompleta)
     crearLabel.appendChild(crearDelete)
     lista.appendChild(crearLabel)
     tareaIngresada.value = "";
 }
 
-window.onload()
 
 function EliminarCompletadas() {
     let tareas = document.querySelectorAll("#list li");
