@@ -12,7 +12,6 @@ function AdministrarTarea(){
     let completas = []
     const fecha = Date.now()
 
-
     if (tareaIngresada.value=== "") return;
    
     crearDelete.innerHTML = "Eliminar"
@@ -47,11 +46,11 @@ function AdministrarTarea(){
 
     })*/
 
-    const guardarTareas = () => localStorage.setItem("tareas", JSON.stringify(lista));
+    const guardarTareas = () => localStorage.setItem("misTareas", JSON.stringify(lista));
 
     crearDelete.addEventListener("click", () => {
         lista.removeChild(crearLabel)
-        localStorage.setItem("misTareas", JSON.stringify(lista));
+        
     })
 
 
@@ -61,12 +60,24 @@ function AdministrarTarea(){
     });
 
     checkbox.addEventListener("change", () =>{
+        var duration
+        let listaDuration = []
         listaTareas.forEach(() => {
             let checkbox = document.querySelector("input[type='checkbox']");
             if (checkbox.checked) {
-                crearDateCompleta.innerHTML = "Completada el " + Date.now().toLocaleString("es-ES", { hour12: false, minute: "2-digit", hour: "2-digit", day: "2-digit", month: "2-digit", year: "numeric" })
+                crearDateCompleta.innerHTML = new Date().toLocaleString("es-ES", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: false,
+                  });
             }
+            duration = crearDate.value - crearDateCompleta.value
+            listaDuration += duration 
         });
+
     })
 
     crearLabel.appendChild(checkbox)
@@ -77,6 +88,7 @@ function AdministrarTarea(){
     lista.appendChild(crearLabel)
     tareaIngresada.value = "";
 }
+
 
 
 function EliminarCompletadas() {
