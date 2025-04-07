@@ -9,38 +9,13 @@
 </head>
 <body>
 
-  
-
     <form>
         <div class="heading">
-            <input id="switch" type="checkbox">
-            <div class="app">
-              <div class="body">
-                
-              
-                  <div class="content">
-                    <div class="circle">
-                      <div class="crescent"></div>
-                    </div>
-                   
-                    <label for="switch">
-                      <div class="toggle"></div>
-                      <div class="names">
-                        <p class="light">Light</p>
-                        <p class="dark">Dark</p>
-                      </div>
-                    </label>
-                    
-                   
-                  </div>
-                  
-                </div>
-              </div>
             <button id="modoOscuro">Dark mode</button>
             <h1>Checklist!</h1>
             <div class="inputGroup">
-                <input  value="" name="r" type="text" id="ingreso">
-                <button class="btn btn-dark" type="button" id="botonIngresar" onclick="AdministrarTarea()">+</button>
+                <input  value="" name="r" type="text" id="ingreso" class="ingreso">
+                <button class="btn btn-dark" type="button" id="botonIngresar" onclick="AdministrarTarea()" style="margin-right: 2%;">+</button>
                 <button class="btn btn-dark" type="button" id="botonBorrar" onclick="EliminarCompletadas()">Eliminar completadas</button>
             </div>
             <div class="filters">
@@ -57,7 +32,6 @@
        <ul id="list">
         </ul>
         <p id="flash"></p>
-
     </form>
     
     

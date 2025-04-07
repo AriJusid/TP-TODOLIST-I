@@ -1,18 +1,35 @@
 var tareaIngresada = document.getElementById("ingreso")
-let listaTareas = []
 let lista = document.getElementById('list')
 let tareasCompletadas = [];
 var divFlash = document.getElementById('flash');
+let listaTareas = []
+var listaString
+
+
+
+const guardarTarea = () => {
+    localStorage.setItem("misTareas", JSON.stringify(listaTareas));
+    console.log(localStorage.getItem("misTareas"))
+}
+
+function RecargarTareas() {
+    listaTareas = JSON.parse(localStorage.getItem("misTareas")) || []
+
+    
+}
 
 function AdministrarTarea(){
     const crearLabel = document.createElement ('li')
     const checkbox = document.createElement('input')
     const crearDelete = document.createElement ('button')
+    crearDelete.classList.add('deleteButon');
+
     const crearDate = document.createElement ('p')
     const span = document.createElement('span')
     const crearDateCompleta = document.createElement('p')
     let completas = []
     const fecha = Date.now()
+
 
     if (tareaIngresada.value=== "") return;
    
@@ -21,44 +38,23 @@ function AdministrarTarea(){
     checkbox.setAttribute("type", "checkbox")
    
     listaTareas.push(tareaIngresada.value)
+    guardarTarea()
     listaTareas.forEach(function(tarea) {
         span.innerHTML = tarea
         crearDate.innerHTML = new Date (fecha).toLocaleString("es-ES", { hour12: false, minute: "2-digit", hour: "2-digit", day: "2-digit", month: "2-digit", year: "numeric" })
     });
 
-   /* leerTareas.addEventListener("load", () => {
-
-        const guardadas = localStorage.getItem("misTareas");
-        guardadas.forEach(tarea => {
-            const crearLabel = document.createElement('li');
-            const checkbox = document.createElement('input');
-            const crearDelete = document.createElement('button');
-            const crearDate = document.createElement('p');
-            const span = document.createElement('span');
-            checkbox.setAttribute("type", "checkbox");
-            span.innerHTML = tarea.descripcion;
-            crearDate.innerHTML = new Date(tarea.fecha).toLocaleString("es-ES", {
-                hour12: false,
-                minute: "2-digit",
-                hour: "2-digit",
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric"
-            });
-
-    })*/
-
-    const guardarTareas = () => localStorage.setItem("misTareas", JSON.stringify(lista));
-
     crearDelete.addEventListener("click", () => {
         lista.removeChild(crearLabel)
-        
+        guardarTarea()
     })
 
 
     completas.forEach(function(tarea){
-        crearDelete.innerHTML = "-"
+        crearDelete.innerHTML = "🗑️"
         checkbox.setAttribute("type", "checkbox")
+        guardarTarea()
+
     });
 
     checkbox.addEventListener("change", () =>{
@@ -78,6 +74,7 @@ function AdministrarTarea(){
             }
             duration = crearDate.value - crearDateCompleta.value
             listaDuration += duration 
+
         });
 
         if (checkbox.checked) {
@@ -88,7 +85,9 @@ function AdministrarTarea(){
 
             tareasCompletadas.push({ tarea: span.innerHTML, duracion: duracion });
             mostrarTareaFlash();
+
         }
+        guardarTarea()
     });
 
 
@@ -129,3 +128,4 @@ function EliminarCompletadas() {
 }
 
 
+RecargarTareas()
