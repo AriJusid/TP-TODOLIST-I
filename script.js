@@ -1,6 +1,8 @@
 var tareaIngresada = document.getElementById("ingreso")
 let listaTareas = []
 let lista = document.getElementById('list')
+let tareasCompletadas = [];
+var divFlash = document.getElementById('flash');
 
 function AdministrarTarea(){
     const crearLabel = document.createElement ('li')
@@ -78,7 +80,17 @@ function AdministrarTarea(){
             listaDuration += duration 
         });
 
-    })
+        if (checkbox.checked) {
+            let tiempoFin = Date.now();
+            let duracion = tiempoFin - fecha;
+            duracion = duracion / 1000;
+
+
+            tareasCompletadas.push({ tarea: span.innerHTML, duracion: duracion });
+            mostrarTareaFlash();
+        }
+    });
+
 
     crearLabel.appendChild(checkbox)
     crearLabel.appendChild(span)
@@ -89,7 +101,21 @@ function AdministrarTarea(){
     tareaIngresada.value = "";
 }
 
+function mostrarTareaFlash() {
+    if (tareasCompletadas.length > 0) {
+        let tareaMasRapida = tareasCompletadas.reduce((minTarea, tarea) => {
+            if (tarea.duracion < minTarea.duracion) {
+                return tarea;
+            } else {
+                return minTarea;
+            }
+           
+        });
 
+       divFlash.innerHTML =
+            `La tarea más rápida fue: "${tareaMasRapida.tarea}" en ${tareaMasRapida.duracion.toFixed(2)} segundos.`;
+    }
+}
 
 function EliminarCompletadas() {
     let tareas = document.querySelectorAll("#list li");
