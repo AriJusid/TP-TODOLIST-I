@@ -5,20 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do!</title>
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
-    <button id="modoOscuro">Dark mode</button>
-    <form>
-       <input  value="" name="r" type="text" id="ingreso">
-       <button type="button" id="botonIngresar" onclick="AdministrarTarea()">Agregar</button>
-       <button type="button" id="botonBorrar" onclick="EliminarCompletadas()">Eliminar completadas</button>
 
-       <input type="radio" name="filter" value="todas" checked>
-       <label>Todas</label>
-       <input type="radio" name="filter" value="pendientes">
-       <label>Pendientes</label>
-       <input type="radio" name="filter" value="completas">
-       <label>Completadas</label>
+  
+
+    <form>
+        <div class="heading">
+            <input id="switch" type="checkbox">
+            <div class="app">
+              <div class="body">
+                
+              
+                  <div class="content">
+                    <div class="circle">
+                      <div class="crescent"></div>
+                    </div>
+                   
+                    <label for="switch">
+                      <div class="toggle"></div>
+                      <div class="names">
+                        <p class="light">Light</p>
+                        <p class="dark">Dark</p>
+                      </div>
+                    </label>
+                    
+                   
+                  </div>
+                  
+                </div>
+              </div>
+            <button id="modoOscuro">Dark mode</button>
+            <h1>Checklist!</h1>
+            <div class="inputGroup">
+                <input  value="" name="r" type="text" id="ingreso">
+                <button class="btn btn-dark" type="button" id="botonIngresar" onclick="AdministrarTarea()">+</button>
+                <button class="btn btn-dark" type="button" id="botonBorrar" onclick="EliminarCompletadas()">Eliminar completadas</button>
+            </div>
+            <div class="filters">
+                <input type="radio" name="filter" value="todas" checked for="cbx2" class="check">
+                <label>Todas</label>
+                <input type="radio" name="filter" value="pendientes">
+                <label>Pendientes</label>
+                <input type="radio" name="filter" value="completas">
+                <label>Completadas</label>
+            </div>
+            
+    </div>
 
        <ul id="list">
         </ul>

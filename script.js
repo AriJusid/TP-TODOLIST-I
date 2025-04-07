@@ -57,7 +57,7 @@ function AdministrarTarea(){
 
 
     completas.forEach(function(tarea){
-        crearDelete.innerHTML = "Eliminar"
+        crearDelete.innerHTML = "-"
         checkbox.setAttribute("type", "checkbox")
     });
 
