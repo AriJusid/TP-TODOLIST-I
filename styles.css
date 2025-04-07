@@ -147,3 +147,13 @@ form:has(input[value="todas"]:checked) #list li {
   transition-duration: 0.5s;
   transform: rotate(160deg);
 }
+.flash{
+  padding-left: 2%;
+  padding: 2%;
+  color: white;
+  background-color: rgb(54, 54, 54);
+  margin: 0px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+}
