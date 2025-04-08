@@ -11,20 +11,19 @@
 
     <form>
         <div class="heading">
-            <button id="modoOscuro">Dark mode</button>
             <h1>Checklist!</h1>
             <div class="inputGroup">
                 <input  value="" name="r" type="text" id="ingreso" class="ingreso">
-                <button class="btn btn-dark" type="button" id="botonIngresar" onclick="AdministrarTarea()" style="margin-right: 2%;">+</button>
-                <button class="btn btn-dark" type="button" id="botonBorrar" onclick="EliminarCompletadas()">Eliminar completadas</button>
+                <button class="btnCrea" type="button" id="botonIngresar" onclick="AdministrarTarea()" style="margin-right: 2%;"><img src="add.png" alt=""></button>
+                <button class="btnComplete" type="button" id="botonBorrar" onclick="EliminarCompletadas()"><img src="garbage.png" alt=""></button>
             </div>
             <div class="filters">
-                <input type="radio" name="filter" value="todas" checked for="cbx2" class="check">
-                <label>Todas</label>
-                <input type="radio" name="filter" value="pendientes">
-                <label>Pendientes</label>
-                <input type="radio" name="filter" value="completas">
-                <label>Completadas</label>
+                <input type="radio" name="filter" value="todas" checked for="cbx2" class="check" style="accent-color: blueviolet;">
+                <label class="option">Todas</label>
+                <input type="radio" name="filter" value="pendientes" style="accent-color: blueviolet;">
+                <label class="option">Pendientes</label>
+                <input type="radio" name="filter" value="completas" style="accent-color: blueviolet;">
+                <label class="option">Completadas</label>
             </div>
             
     </div>

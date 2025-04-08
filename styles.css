@@ -1,6 +1,6 @@
 html{
-  background: rgb(140,15,171);
-  background: linear-gradient(0deg, rgba(140,15,171,1) 0%, rgba(12,23,83,1) 100%);
+  background: rgba(140, 15, 171, 0.541);
+  background: linear-gradient(0deg, rgba(140, 15, 171, 0.608) 0%, rgba(12,23,83,1) 100%);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
@@ -13,13 +13,18 @@ button{
 }
 .ingreso{
   width: 100%;
+  height: 35px;
+  border-radius: 50px;
+  padding-left: 2%;
 }
 input{
   border-radius: 5px;
   border: none;
   width: 10%;
   margin-right: 3%;
+  background-color: rgba(128, 128, 128, 0.132);
 }
+
 
 body{
   display: flex;
@@ -33,23 +38,26 @@ form{
   margin-top: 4%;
   border-radius: 10px;
   height: 100%;
-
+  h1{
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: 500;
+  }
   .heading{
     display: flex;
     flex-direction: column;
-    background-color: rgb(54, 54, 54);
-    color: white;
+    color: black;
     padding: 3%;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
-    
-    button{
-      width: 20%;
-    }
+    border-bottom: 1px solid rgba(128, 128, 128, 0.589);
+
+
+   
     .inputGroup{
       display: flex;
       width: 100%;
     }
+
 
     .filters{
       margin-top:2% ;
@@ -57,14 +65,18 @@ form{
       display: flex;
       width: 30%;
 
+
       label{
         margin-right: 5%;
+        font-weight: 510;
+        color: rgba(0, 0, 0, 0.75);
+
       }
     }
   }
 }
 span{
-  font-size: 1.3em;
+  font-size: 1em;
   margin-right: 2%;
 }
 .datosTarea{
@@ -72,37 +84,44 @@ display: flex;
 flex-direction: column;
 }
 
+
 li{
   height: 20px;
-  margin-bottom: 3%;
+  margin-bottom: 6%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  p{
-  }
+
+
 }
+
 
 ul{
   padding: 0px;
 }
 
+
 input[type="checkbox"]:checked + span {
   text-decoration: line-through;
 }
+
 
 form:has(input[value="pendientes"]:checked) #list li:has(input[type="checkbox"]:checked) {
   display: none;
 }
 
+
 form:has(input[value="completas"]:checked) #list li:not(:has(input[type="checkbox"]:checked)) {
   display: none;
 }
+
 
 form:has(input[value="todas"]:checked) #list li {
   display: flex;
 }
 
-/* From Uiverse.io by vinodjangid07 */ 
+
+/* From Uiverse.io by vinodjangid07 */
 .deleteButon {
   width: 40px;
   height: 40px;
@@ -120,18 +139,21 @@ form:has(input[value="todas"]:checked) #list li {
   overflow: hidden;
   position: relative;
   gap: 2px;
-  margin-right: 1%;
-  margin-top: 1%;
+  margin-right: 3%;
+  margin-top: 2%;
 }
+
 
 .svgIcon {
   width: 12px;
   transition-duration: 0.3s;
 }
 
+
 .svgIcon path {
   fill: white;
 }
+
 
 .deleteButon:hover {
   transition-duration: 0.3s;
@@ -139,6 +161,7 @@ form:has(input[value="todas"]:checked) #list li {
   align-items: center;
   gap: 0;
 }
+
 
 .bin-top {
   transform-origin: bottom right;
@@ -150,10 +173,21 @@ form:has(input[value="todas"]:checked) #list li {
 .flash{
   padding-left: 2%;
   padding: 2%;
-  color: white;
-  background-color: rgb(54, 54, 54);
+  color: black;
   margin: 0px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  border-top: 1px solid rgba(128, 128, 128, 0.589);
+}
+
+
+img{
+  color: white;
+  width: 28px;
+}
+.btnComplete:hover, .btnCrea:hover{
+  background-color: rgba(82, 82, 82, 0.186);
+
 
 }
+
