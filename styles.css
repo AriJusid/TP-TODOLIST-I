@@ -180,13 +180,22 @@ form:has(input[value="todas"]:checked) #list li {
   border-top: 1px solid rgba(128, 128, 128, 0.589);
 }
 
+.btnComplete, .btnCrea{
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+}
 
 img{
   color: white;
-  width: 28px;
+  width: 27px;
+  
 }
 .btnComplete:hover, .btnCrea:hover{
-  background-color: rgba(82, 82, 82, 0.186);
+  background-color: rgba(82, 82, 82, 0.041);
 
 
 }
